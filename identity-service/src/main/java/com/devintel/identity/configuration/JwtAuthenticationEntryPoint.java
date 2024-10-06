@@ -9,7 +9,7 @@ import org.springframework.http.MediaType;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
 
-import com.devintel.identity.dto.request.ApiResponse;
+import com.devintel.identity.dto.response.ApiResponse;
 import com.devintel.identity.exception.ErrorCode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 

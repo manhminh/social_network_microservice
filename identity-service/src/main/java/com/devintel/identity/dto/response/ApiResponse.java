@@ -1,4 +1,4 @@
-package com.devintel.identity.dto.request;
+package com.devintel.identity.dto.response;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
