@@ -1,17 +1,15 @@
-package com.devintel.identity.configuration;
+package com.devintel.profile.configuration;
 
-import java.io.IOException;
-
+import com.devintel.profile.dto.response.ApiResponse;
+import com.devintel.profile.exception.ErrorCode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-
 import org.springframework.http.MediaType;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
 
-import com.devintel.identity.dto.response.ApiResponse;
-import com.devintel.identity.exception.ErrorCode;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import java.io.IOException;
 
 public class JwtAuthenticationEntryPoint implements AuthenticationEntryPoint {
     @Override

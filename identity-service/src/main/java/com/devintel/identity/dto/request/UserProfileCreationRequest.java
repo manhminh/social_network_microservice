@@ -1,4 +1,4 @@
-package com.devintel.profile.dto.request;
+package com.devintel.identity.dto.request;
 
 import lombok.*;
 import lombok.experimental.FieldDefaults;
