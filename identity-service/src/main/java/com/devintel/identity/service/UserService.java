@@ -54,6 +54,7 @@ public class UserService {
         user = userRepository.save(user);
         UserProfileCreationRequest profileCreationRequest = userProfileMapper.toUserProfileCreationRequest(request);
         profileCreationRequest.setUserId(user.getId());
+
         profileClient.createUserProfile(profileCreationRequest);
         return userMapper.toUserResponse(user);
     }
