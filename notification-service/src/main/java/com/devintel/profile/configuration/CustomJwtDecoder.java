@@ -1,4 +1,4 @@
-package com.devteria.profile.configuration;
+package com.devintel.profile.configuration;
 
 import com.nimbusds.jwt.SignedJWT;
 import org.springframework.security.oauth2.jwt.Jwt;

@@ -1,4 +1,4 @@
-package com.devteria.profile.exception;
+package com.devintel.profile.exception;
 
 import lombok.Getter;
 import org.springframework.http.HttpStatus;
