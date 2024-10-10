@@ -1,4 +1,4 @@
-package com.devintel.profile.configuration;
+package com.devintel.notification.configuration;
 
 import com.nimbusds.jwt.SignedJWT;
 import org.springframework.security.oauth2.jwt.Jwt;

@@ -1,4 +1,4 @@
-package com.devintel.profile;
+package com.devintel.notification;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
