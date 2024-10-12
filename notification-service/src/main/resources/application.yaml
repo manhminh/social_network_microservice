@@ -7,4 +7,6 @@ spring:
     name: notification-service
   data:
     mongodb:
-      uri: mongodb://root:root@localhost:27017/notification-service?authSource=admin
+      uri: ${MONGODB_URI}
+brevo:
+  apiKey: ${BREVO_API_KEY}
