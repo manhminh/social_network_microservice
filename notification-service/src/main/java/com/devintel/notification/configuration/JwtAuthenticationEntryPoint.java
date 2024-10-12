@@ -1,6 +1,6 @@
 package com.devintel.notification.configuration;
 
-import com.devintel.notification.dto.ApiResponse;
+import com.devintel.notification.dto.response.ApiResponse;
 import com.devintel.notification.exception.ErrorCode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.http.HttpServletRequest;
