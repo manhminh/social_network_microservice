@@ -1,4 +1,4 @@
-package com.devintel.notification.dto;
+package com.devintel.notification.dto.response;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AccessLevel;
