@@ -1,2 +1,2 @@
-# bookteria
-The bookteria project, a book social network
+# DEVINTEL
+The social network project, a book social network
