@@ -6,6 +6,7 @@ import java.util.List;
 import com.devintel.identity.dto.request.UserProfileCreationRequest;
 import com.devintel.identity.mapper.UserProfileMapper;
 import com.devintel.identity.repository.httpclient.ProfileClient;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -39,6 +40,7 @@ public class UserService {
     PasswordEncoder passwordEncoder;
     ProfileClient profileClient;
     UserProfileMapper userProfileMapper;
+    KafkaTemplate<String, String> kafkaTemplate; // <key, value>
 
     public UserResponse createUser(UserCreationRequest request) {
         if (userRepository.existsByUsername(request.getUsername())) throw new AppException(ErrorCode.USER_EXISTED);
@@ -56,6 +58,10 @@ public class UserService {
         profileCreationRequest.setUserId(user.getId());
 
         profileClient.createUserProfile(profileCreationRequest);
+
+        // Publish message to kafka
+        kafkaTemplate.send("onboard-successful", "Welcome out new member: " + user.getUsername());
+
         return userMapper.toUserResponse(user);
     }
 

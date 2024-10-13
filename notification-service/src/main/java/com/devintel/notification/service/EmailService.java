@@ -16,7 +16,7 @@ import java.util.Collections;
 
 @Service
 @RequiredArgsConstructor
-@FieldDefaults(level = lombok.AccessLevel.PRIVATE, makeFinal = true)
+@FieldDefaults(level = lombok.AccessLevel.PRIVATE)
 public class EmailService {
     EmailClient emailClient;
 
