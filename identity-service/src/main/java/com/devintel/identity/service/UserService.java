@@ -3,6 +3,7 @@ package com.devintel.identity.service;
 import java.util.HashSet;
 import java.util.List;
 
+import com.devintel.event.dto.NotificationEvent;
 import com.devintel.identity.dto.request.UserProfileCreationRequest;
 import com.devintel.identity.mapper.UserProfileMapper;
 import com.devintel.identity.repository.httpclient.ProfileClient;
@@ -40,7 +41,7 @@ public class UserService {
     PasswordEncoder passwordEncoder;
     ProfileClient profileClient;
     UserProfileMapper userProfileMapper;
-    KafkaTemplate<String, String> kafkaTemplate; // <key, value>
+    KafkaTemplate<String, Object> kafkaTemplate; // <key, value>
 
     public UserResponse createUser(UserCreationRequest request) {
         if (userRepository.existsByUsername(request.getUsername())) throw new AppException(ErrorCode.USER_EXISTED);
@@ -59,8 +60,15 @@ public class UserService {
 
         profileClient.createUserProfile(profileCreationRequest);
 
+        NotificationEvent notificationEvent = NotificationEvent.builder()
+                .channel("EMAIL")
+                .recipient(request.getEmail())
+                .subject("Welcome out new member, " + user.getUsername())
+                .body("Hi " + user.getUsername() + ", welcome out new member. We are happy to have you here.")
+                .build();
+
         // Publish message to kafka
-        kafkaTemplate.send("onboard-successful", "Welcome out new member: " + user.getUsername());
+        kafkaTemplate.send("notification-delivery", notificationEvent);
 
         return userMapper.toUserResponse(user);
     }
