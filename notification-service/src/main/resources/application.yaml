@@ -21,5 +21,3 @@ notification:
   email:
     brevo-url: https://api.brevo.com
     brevo-apikey: ${BREVO_API_KEY}
-      key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: org.apache.kafka.common.serialization.StringSerializer
